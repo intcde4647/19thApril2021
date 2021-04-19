@@ -1,0 +1,213 @@
+If the validation is success it should move to success.html otherwise it should
+remain in the same page.
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/validate.js"></script>
+</head>
+<body>
+    <form action="success.html" onSubmit="return validate()">
+       <table>
+           <tr>
+              <td><label for="username">USERNAME</label></td>
+              <td><input type="text" id="username" name="username"/></td>
+           </tr>
+           <tr>
+            <td align="center" colspan="2"><input type="submit" value="submit"></td>
+         </tr>
+       </table>
+    </form>
+
+</body>
+</html>
+---------------------------------------------------------------------------------------------------------------
+function validate()
+{
+    
+   var status=false;
+   var name=document.getElementById("username").value;
+   var result=document.getElementById("result");
+   if(name=="")
+   {
+       result.innerHTML="It cannot be left blank";
+    
+   }
+   else
+   {
+    result.innerHTML="The name is "+name;
+     
+   }
+   return status;
+    
+}
+
+In the above example if we are entering the name the success.html is opened otherwise it remain in the first
+page only.
+
+success.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Welcome to my page!!!!!
+</body>
+</html>
+
+-------------------------------------------------------------------------------------------------
+If we don't mention action attribute with the html page, the same page is being 
+called once again which means it redirects to the same page from where submit button
+was pressed. So in the below example it will happen so.
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/validate.js"></script>
+</head>
+<body>
+    <form>
+       <table>
+           <tr>
+              <td><label for="username">USERNAME</label></td>
+              <td><input type="text" id="username" name="username"/></td>
+           </tr>
+           <tr>
+            <td align="center" colspan="2"><input type="submit" value="submit"></td>
+         </tr>
+       </table>
+    </form>
+
+</body>
+</html>
+
+
+
+But if we mention action attribute with the page , it goes to that page as can be seen in the example first example.
+
+------------------------------------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/validate.js"></script>
+</head>
+<body>
+    <form action="success.html" onSubmit="return true">
+       <table>
+           <tr>
+              <td><label for="username">USERNAME</label></td>
+              <td><input type="text" id="username" name="username"/></td>
+           </tr>
+           <tr>
+            <td align="center" colspan="2"><input type="submit" value="submit"></td>
+         </tr>
+       </table>
+    </form>
+
+</body>
+</html>
+
+What will happen if we write onSubmit="return true"
+The form will be moving to the action page.
+In the above example it will move to success.html.
+
+---------------------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/validate.js"></script>
+</head>
+<body>
+    <form action="success.html" onSubmit="return false">
+       <table>
+           <tr>
+              <td><label for="username">USERNAME</label></td>
+              <td><input type="text" id="username" name="username"/></td>
+           </tr>
+           <tr>
+            <td align="center" colspan="2"><input type="submit" value="submit"></td>
+         </tr>
+       </table>
+    </form>
+
+</body>
+</html>
+
+
+
+What will happen if we write onSubmit="return false"
+The form will be in the same page and won't move to success page.
+
+
+---------------------------------------------------------------------------------------------------------------
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/validate.js"></script>
+</head>
+<body>
+    <form  onSubmit="return validate()">
+       <table>
+           <tr>
+              <td><label for="username">USERNAME</label></td>
+              <td><input type="text" id="username" name="username"/></td>
+           </tr>
+           <tr>
+            <td align="center" colspan="2"><input type="submit" value="submit"></td>
+         </tr>
+       </table>
+        <div id="result"></div>
+    
+    </form>
+
+</body>
+</html>
+
+These we expected in our assignment.
+Action is not mentioned so it will be redirected to the same page. and whatever success or error message needs
+to be displayed is same page that is the reason from the validate method we are returning false.
+
+function validate()
+{
+    
+   var status=false;
+   var name=document.getElementById("username").value;
+   var result=document.getElementById("result");
+   if(name=="")
+   {
+       result.innerHTML="It cannot be left blank";
+    
+   }
+   else
+   {
+    result.innerHTML="The name is "+name;
+     
+   }
+   return status;
+    
+}
+---------------------------------------------------------------------------------------------------------------
+
