@@ -210,4 +210,230 @@ function validate()
     
 }
 ---------------------------------------------------------------------------------------------------------------
-https://www.w3schools.com/jsref/jsref_obj_regexp.asp
+https://www.w3schools.com/jsref/jsref_obj_regexp.asp======> The regular expression in JS
+https://www.sitepoint.com/community/t/why-use-getelementbyid/219022/6
+https://www.formget.com/form-validation-using-javascript/
+---------------------------------------------------------------------------------------------
+Why will will go for regex ( regular expression ). The concepts is present with other languages also.
+
+A regular expression is used to match patterns in a text.
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script>
+    function validate() {
+            var regex=/cts/;
+            var str=document.getElementById("data").value;
+            // return type of test  method of regex is of boolean type
+            if(regex.test(str))
+            {
+                document.getElementById("message").innerHTML="Found!!!!";
+            }
+            else
+            {
+                document.getElementById("message").innerHTML="Not Found!!!!";
+            }
+        } 
+
+
+</script>
+
+</head>
+<body>
+        <input type="text" name="data" id="data">
+        <button onclick="validate()">validate</button>
+         <span id="message"></span>
+    </body>
+</html>
+----------------------------------------------------------------------------------------------------------
+
+<html>
+   <head>
+      <script language="javascript">
+        function validate(){
+            var str=document.getElementById("userName").value;
+            var messageControl= document.getElementById("message");
+            var regex=/^cts$/;
+            if(regex.test(str))
+               {
+               messageControl.innerHTML="<b>Found<b>";                
+               }
+            else
+               {
+               messageControl.innerHTML="<b>Not Found<b>";
+               }
+          
+        }
+      </script>
+   </head>
+   <body>
+     
+     USERNAME<input type="text" name="userName" id="userName"/>
+     <p id="message"></p>
+     <input type="button" value="greet" onClick="validate()"/>
+   </body>
+</html>
+
+---------------------
+* is wildcard =====> the occurance =====> zero or more
++ =================> one or more
+?=================> zero or one
+
+we are either looking for
+0 or more occurance of a or b or c
+
+<html>
+   <head>
+      <script language="javascript">
+        function validate(){
+            var str=document.getElementById("userName").value;
+            var messageControl= document.getElementById("message");
+            var regex=/^[abc]*$/;
+            if(regex.test(str))
+               {
+               messageControl.innerHTML="<b>Found<b>";                
+               }
+            else
+               {
+               messageControl.innerHTML="<b>Not Found<b>";
+               }
+          
+        }
+      </script>
+   </head>
+   <body>
+     
+     USERNAME<input type="text" name="userName" id="userName"/>
+     <p id="message"></p>
+     <input type="button" value="greet" onClick="validate()"/>
+   </body>
+</html>
+-----------------------------------------------------------
+<!-- This is to code to check for a number which will be having exactly 3 digitss -->
+<html>
+   <head>
+      <script language="javascript">
+        function validate(){
+     
+            var str=document.getElementById("userName").value;
+            var messageControl= document.getElementById("message");
+            var regex=/^[0-9][0-9][0-9]$/;
+            if(regex.test(str))
+               {
+               messageControl.innerHTML="<b>Matches<b>";                
+               }
+            else
+               {
+               messageControl.innerHTML="<b>Not Matching<b>";
+               }
+          
+        }
+      </script>
+   </head>
+   <body>
+     
+     USERNAME<input type="text" name="userName" id="userName"/>
+     <p id="message"></p>
+     <input type="button" value="greet" onClick="validate()"/>
+   </body>
+</html>
+----------------------
+<!-- {minimum,max occurance}
+
+<html>
+   <head>
+      <script language="javascript">
+        function validate(){
+     
+            var str=document.getElementById("userName").value;
+            var messageControl= document.getElementById("message");
+            var regex=/^\d{2,5}$/;
+            if(regex.test(str))
+               {
+               messageControl.innerHTML="<b>Valid<b>";                
+               }
+            else
+               {
+               messageControl.innerHTML="<b>InValid<b>";
+               }
+          
+        }
+      </script>
+   </head>
+   <body>
+     
+     USERNAME<input type="text" name="userName" id="userName"/>
+     <p id="message"></p>
+     <input type="button" value="validate mobile" onClick="validate()"/>
+   </body>
+</html>
+--------------------------------------------
+\w -----   alphanumeric
+
+<html>
+   <head>
+      <script language="javascript">
+        function validate(){
+     
+            var str=document.getElementById("userName").value;
+            var messageControl= document.getElementById("message");
+            var regex=/^\w{2,5}$/;
+            if(regex.test(str))
+               {
+               messageControl.innerHTML="<b>Valid<b>";                
+               }
+            else
+               {
+               messageControl.innerHTML="<b>InValid<b>";
+               }
+          
+        }
+      </script>
+   </head>
+   <body>
+     
+     USERNAME<input type="text" name="userName" id="userName"/>
+     <p id="message"></p>
+     <input type="button" value="validate mobile" onClick="validate()"/>
+   </body>
+</html>
+---------------------------
+Why we have \ before .
+
+Ans : . can be replaced any one character but we want dot should be replaced
+and searching for a pattern where . is a part example .com
+
+
+<html>
+   <head>
+      <script language="javascript">
+        function validate(){
+     
+            var str=document.getElementById("userName").value;
+            var messageControl= document.getElementById("message");
+            var regex=/^\w+\.com$/;
+            if(regex.test(str))
+               {
+               messageControl.innerHTML="<b>Valid<b>";                
+               }
+            else
+               {
+               messageControl.innerHTML="<b>InValid<b>";
+               }
+          
+        }
+      </script>
+   </head>
+   <body>
+     
+     USERNAME<input type="text" name="userName" id="userName"/>
+     <p id="message"></p>
+     <input type="button" value="validate mobile" onClick="validate()"/>
+   </body>
+</html>
